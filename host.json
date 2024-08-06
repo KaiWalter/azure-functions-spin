@@ -14,7 +14,7 @@
   },
   "customHandler": {
     "description": {
-      "defaultExecutablePath": "/usr/local/bin/spin",
+      "defaultExecutablePath": "spin",
       "workingDirectory": "./spin-in-func/",
       "arguments": [
         "up",
