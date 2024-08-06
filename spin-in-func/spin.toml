@@ -1,0 +1,18 @@
+spin_manifest_version = 2
+
+[application]
+name = "spin-in-func"
+version = "0.1.0"
+authors = ["Kai Walter <kai.walter@outlook.de>"]
+description = "Test Spin in Azure Functions"
+
+[[trigger.http]]
+route = "/..."
+component = "spin-in-func"
+
+[component.spin-in-func]
+source = "target/wasm32-wasi/release/spin_in_func.wasm"
+allowed_outbound_hosts = []
+[component.spin-in-func.build]
+command = "cargo build --target wasm32-wasi --release"
+watch = ["src/**/*.rs", "Cargo.toml"]
