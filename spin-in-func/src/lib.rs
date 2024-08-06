@@ -6,7 +6,7 @@ use spin_sdk::http_component;
 async fn handle_route(req: Request) -> Response {
     let mut router = Router::new();
     router.get("/", health);
-    router.get("/api/spin-in-func", handle_spin_in_func);
+    router.post("/spin-in-func", handle_spin_in_func);
     router.handle(req)
 }
 
@@ -16,14 +16,22 @@ fn health(_req: Request, _param: Params) -> anyhow::Result<impl IntoResponse> {
 
 fn handle_spin_in_func(req: Request, _param: Params) -> anyhow::Result<impl IntoResponse> {
     let payload = json!({
-        "name": "John Doe",
-        "age": 43,
-        "phones": [
-            "+44 1234567",
-            "+44 2345678"
+        "Outputs": {
+            "res": {
+                "body": {
+                    "name": "John Doe",
+                    "age": 43,
+                    "phones": [
+                        "+44 1234567",
+                        "+44 2345678"
+                    ]
+                }
+            }
+        },
+        "Logs": [
+            format!("call to URL {}",req.uri())
         ]
     });
-    println!("url {} / payload {}", req.uri(), payload.to_string());
     Ok(Response::builder()
         .status(200)
         .header("content-type", "application/json")

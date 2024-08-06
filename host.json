@@ -13,7 +13,6 @@
     "version": "[4.*, 5.0.0)"
   },
   "customHandler": {
-    "enableForwardingHttpRequest": true,
     "description": {
       "defaultExecutablePath": "/usr/local/bin/spin",
       "workingDirectory": "./spin-in-func/",
