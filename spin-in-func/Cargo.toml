@@ -1,6 +1,6 @@
 [package]
 name = "spin-in-func"
-authors = ["Kai Walter <kai.walter@outlook.de>"]
+authors = ["Project contributors"]
 description = "Test Spin in Azure Functions"
 version = "0.1.0"
 edition = "2021"
